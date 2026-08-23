@@ -1,0 +1,14 @@
+{
+  "name": "mcp-agent-data-system",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MCP Agent and Data System. Build status is generated, never hand-written: see BUILD_LEDGER.md and scripts/gen_ledger.js.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test",
+    "ledger": "node scripts/gen_ledger.js"
+  }
+}
