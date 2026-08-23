@@ -1,0 +1,135 @@
+# Boundary and Overlap Matrix — Master Build Directive §B
+# GENERATED. Governs handoffs and occupational separation.
+# Controlling rule: where a detailed role contract is more specific than a
+# matrix entry, the ROLE CONTRACT controls. The matrix never authorizes a
+# role to absorb work its full definition excludes.
+# 'Agent handoff is not failure. It is required behavior when an
+#  occupational boundary is reached.'
+controlling_rule: |
+  Boundary-matrix controlling rule
+  The matrix supplements the full occupational definitions.
+  Where a detailed role contract is more specific than a short matrix entry, the detailed role contract controls.
+  The matrix does not authorize a role to absorb work excluded by its full definition.
+  Agent handoff is not failure.
+  It is required behavior when an occupational boundary is reached.
+raw_matrix: |
+  B) Boundary and Overlap Matrix
+  Work boundaryAccountable roleMust hand off toForbidden overlap
+  Understand an
+  incoming request
+  Natural-Language Intake
+  Coordinator
+  Work Planner or
+  one specialist
+  Does not plan complex
+  work or execute it
+  Decompose and
+  assemble work
+  Work Planner and Result
+  Integrator
+  Qualified
+  occupational
+  specialists
+  Does not perform their
+  jobs or alter the objective
+  Preserve corrections
+  and current context
+  Continuity and Correction
+  Steward
+  Every affected
+  authorized role
+  Does not decide user intent
+  or technical architecture
+  Maintain daily
+  attention
+  Daily Priorities
+  Coordinator
+  Work Planner for
+  projects
+  Does not turn the day into
+  a new project system
+  Explore ideas and
+  decisions
+  Thinking and Decision
+  Partner
+  Research or
+  specialist after
+  direction is
+  chosen
+  Does not execute or make
+  exploratory thought
+  permanent
+  Find and verify
+  evidence
+  Research and Evidence
+  Analyst
+  Requesting
+  specialist
+  Does not make the
+  specialist-s final judgment
+  Career workflow
+  Discovery — Fit —
+  Resume/Application —
+  Interview — Pipeline
+  Next named
+  career role
+  No career guru owns all
+  stages
+  Communications
+  Professional or Personal
+  specialist
+  Writing/Marketing
+  only when
+  purpose changes
+  Neither sends or commits
+  without approval
+  Business
+  development
+  Opportunity — Offer —
+  Pricing — Positioning —
+  Campaign — Content
+  Next named
+  commercial role
+  No general business agent
+  absorbs all functions
+  Financial work
+  Personal Cash Flow,
+  Business Bookkeeping, or
+  Consignment Settlement
+  Correct financial
+  record owner
+  No transactions or
+  licensed-professional
+  claims
+  Resale workflow
+  Intake — Identification —
+  Condition —
+  Comparables — Pricing
+  — Listing — Fulfillment
+  Next named
+  resale role
+  No single resale agent
+  invents facts or controls
+  the whole chain
+  Media workflow
+  Media Custodian —
+  Image Preparation
+  Listing, Content,
+  or other
+  authorized
+  consumer
+  Originals are never edited
+  by derivative workers
+  36
+  Work boundaryAccountable roleMust hand off toForbidden overlap
+  File work
+  File Discovery and
+  Organization
+  Research,
+  Forensic, or
+  domain specialist
+  File organization does not
+  absorb research, forensic
+  reconstruction, or domain
+  judgment
+  Boundary-matrix controlling rule

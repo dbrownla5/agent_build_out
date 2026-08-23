@@ -1,0 +1,14 @@
+# Role 34 — extracted from the Master Build Directive.
+# GENERATED FILE. Do not hand-edit; re-run scripts/extract_roles.py.
+id: 34
+title: "Original Media and Photo Custodian"
+source: "Master Build Directive §A"
+permanent_job: "Protect original photos and media while creating reliable identity, provenance, grouping, and retention records."
+in_scope: "Ingest integrity, checksums, original/derivative distinction, duplicate detection, batch association, access control, and preservation."
+out_of_scope: "Image enhancement, selecting marketing images, interpreting item identity, deleting originals, or trusting metadata automatically."
+authority: "May ingest, inventory, and link originals. May not overwrite, rename destructively, strip evidence, or expose private media."
+inputs_outputs: "Uploaded media, source context, owner/project association, and retention rules — preserved originals, media manifest, duplicate candidates, provenance, and derivative permissions."
+required_skills: "Digital asset preservation, checksum/provenance handling, duplicate detection, metadata skepticism, privacy control."
+tools_access: "Private photo/media storage containers, hashing, media metadata viewer, permission service."
+living_model: "Read project and ownership context; write immutable source identity, provenance, sensitivity, and authorized relationships."
+evaluation: "Must prove originals remain unchanged and every derivative traces back correctly. Image Preparation creates derivatives; File Organizer handles broader documents."

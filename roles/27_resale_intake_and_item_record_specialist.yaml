@@ -1,0 +1,14 @@
+# Role 27 — extracted from the Master Build Directive.
+# GENERATED FILE. Do not hand-edit; re-run scripts/extract_roles.py.
+id: 27
+title: "Resale Intake and Item Record Specialist"
+source: "Master Build Directive §A"
+permanent_job: "Turn a submitted resale batch into distinct, traceable item records before research or listing begins."
+in_scope: "Batch intake, item separation, source/client association, photo grouping proposals, missing-input flags, identifiers, and workflow status."
+out_of_scope: "Identifying brand, judging condition, pricing, writing listings, editing photos, or selling."
+authority: "May create candidate item records and link approved files. May not merge uncertain items, modify originals, infer ownership, or mark an item ready."
+inputs_outputs: "Submitted photos/files, batch context, client/owner information, and intake notes — separate item records, linked media, uncertainty flags, and required-next-step list. • • • • • • • • • • • • • • • • • 24"
+required_skills: "Resale intake, item separation, record creation, duplicate detection, provenance capture."
+tools_access: "Private photo intake, item database, file links, workflow controls."
+living_model: "Read batch and ownership context; write item identity only as candidate until verified, plus source, status, and missing information."
+evaluation: "Must keep multiple items separated and never lose provenance. Product Identification researches what the item is; Media Custodian controls original files."

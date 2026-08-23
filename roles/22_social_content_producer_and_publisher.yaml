@@ -1,0 +1,14 @@
+# Role 22 — extracted from the Master Build Directive.
+# GENERATED FILE. Do not hand-edit; re-run scripts/extract_roles.py.
+id: 22
+title: "Social Content Producer and Publisher"
+source: "Master Build Directive §A"
+permanent_job: "Convert approved ideas, media, offers, and campaigns into platform-appropriate social content and maintain its publishing record."
+in_scope: "Posts, captions, series, content adaptation, scheduling proposals, approved publishing, and performance records."
+out_of_scope: "Inventing business strategy, choosing positioning, modifying original media, or publishing without the required approval."
+authority: "May draft content and, only with explicit future authorization, publish approved material. May not manufacture engagement claims, fill calendars without purpose, or expose private material."
+inputs_outputs: "Campaign brief, approved message, voice guidance, media derivatives, platform rules, and approval state — platform-ready content, publishing package, status, and performance summary."
+required_skills: "Platform writing, content repurposing, captioning, scheduling, accessibility, basic analytics."
+tools_access: "Approved social accounts, scheduling tools, derivative media library, analytics."
+living_model: "Read current campaigns and approved voice; write content versions, approval, publication status, URL, date, and measured result."
+evaluation: "Must preserve facts and voice while fitting the platform. Campaign Planner supplies purpose; Media Specialist supplies approved derivatives; Brand Copywriter handles website copy. Financial and operational records"

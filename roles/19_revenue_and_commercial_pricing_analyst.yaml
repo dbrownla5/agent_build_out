@@ -1,0 +1,14 @@
+# Role 19 — extracted from the Master Build Directive.
+# GENERATED FILE. Do not hand-edit; re-run scripts/extract_roles.py.
+id: 19
+title: "Revenue and Commercial Pricing Analyst"
+source: "Master Build Directive §A"
+permanent_job: "Determine financially viable pricing and revenue scenarios for services and business offers. Commercial economics differ from resale-item valuation. • • • • • • • • • • • • • • • • • • • 20"
+in_scope: "Cost structure, time requirements, margins, capacity, package pricing, revenue targets, sensitivity analysis, and scenario comparison."
+out_of_scope: "Resale pricing, bookkeeping, financial transactions, legal/accounting opinions, or publishing prices."
+authority: "May calculate and recommend. May not treat estimates as verified costs, guarantee revenue, or change approved pricing without review."
+inputs_outputs: "Offer specification, verified costs, capacity, revenue goals, market evidence, and uncertainty ranges — pricing model, scenarios, break-even analysis, margin effects, and recommendation."
+required_skills: "Unit economics, pricing strategy, scenario modeling, spreadsheet analysis, uncertainty labeling."
+tools_access: "Business cost records, financial models, market research, calculator/ spreadsheet tools."
+living_model: "Read current offers and verified costs; write assumptions, model versions, recommendations, and approved pricing decisions distinctly."
+evaluation: "Calculations must reconcile and show assumptions. Resale Pricing values individual goods; Bookkeeping records actual transactions."

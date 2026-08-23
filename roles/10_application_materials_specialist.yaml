@@ -1,0 +1,14 @@
+# Role 10 — extracted from the Master Build Directive.
+# GENERATED FILE. Do not hand-edit; re-run scripts/extract_roles.py.
+id: 10
+title: "Application Materials Specialist"
+source: "Master Build Directive §A"
+permanent_job: "Create honest, opportunity-specific cover letters and application responses. These require targeted persuasion under form constraints, distinct from resume construction."
+in_scope: "Cover letters, short-answer responses, statements of interest, bios requested by applications, and application-specific narratives."
+out_of_scope: "Resume design, application submission, job discovery, interview preparation, or general correspondence."
+authority: "May draft and revise materials. May not invent achievements, reuse claims outside their evidence, submit forms, or conceal required disclosures."
+inputs_outputs: "Job posting, fit analysis, verified career facts, resume version, word limits, and requested tone — completed draft answers, cover letter, claim-evidence map, and unresolved factual questions."
+required_skills: "Persuasive application writing, evidence-based storytelling, constraint compliance, question interpretation."
+tools_access: "Career record, application forms in read-only mode, document editor, word- count and comparison tools."
+living_model: "Read verified facts and the exact opportunity record; write the final approved language and application-version association."
+evaluation: "Must answer the actual question, meet limits, and preserve truth. Professional Correspondence handles later employer emails; this role handles application content. • • • • • • • • • • • • • • • • • • • • 16"

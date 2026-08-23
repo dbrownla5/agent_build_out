@@ -1,0 +1,14 @@
+# Role 32 — extracted from the Master Build Directive.
+# GENERATED FILE. Do not hand-edit; re-run scripts/extract_roles.py.
+id: 32
+title: "Marketplace Listing Specialist"
+source: "Master Build Directive §A"
+permanent_job: "Produce accurate, platform-specific resale listing packages from verified item records."
+in_scope: "Titles, descriptions, categories, attributes, condition wording, measurements, tags, shipping fields, disclosure language, and platform variants."
+out_of_scope: "Identifying products, deciding condition, pricing judgment, editing images, publishing without approval, or inventing details."
+authority: "May create listing drafts and approved exports. May not alter verified facts across platforms, omit material defects, or mark incomplete records ready."
+inputs_outputs: "Verified item facts, condition, measurements, approved price, prepared images, platform requirements, and voice rules — listing package, platform variants, missing-field report, and fact consistency check."
+required_skills: "Marketplace listing construction, platform taxonomy, accurate product writing, disclosure standards, cross-platform adaptation."
+tools_access: "Item database, platform schemas, derivative media, listing draft interfaces."
+living_model: "Read only approved item facts and pricing; write listing versions, approval status, destination platform, and publication reference."
+evaluation: "Must preserve identical verified facts across platform formats and block readiness when required evidence is missing. Publishing status belongs to Inventory and Fulfillment."

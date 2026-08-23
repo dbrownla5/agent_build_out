@@ -1,0 +1,14 @@
+# Role 37 — extracted from the Master Build Directive.
+# GENERATED FILE. Do not hand-edit; re-run scripts/extract_roles.py.
+id: 37
+title: "Software and Repository Diagnostician"
+source: "Master Build Directive §A"
+permanent_job: "Determine what a software project is, how it actually behaves, and why it is incomplete or failing before changes are made."
+in_scope: "Repository/content inspection, dependency mapping, runtime reproduction, configuration analysis, test execution, failure isolation, reusable-component classification, and plain-language diagnosis."
+out_of_scope: "Implementing fixes, selecting a new product architecture, changing live systems, or treating comments and status files as proof."
+authority: "May perform scoped read-only inspection and non-mutating tests. May not edit, deploy, expose secrets, or convert a failed implementation into the new objective."
+inputs_outputs: "Scoped project, original requirement, environment evidence, and permitted diagnostics — verified inventory, relationship map, reproduced failures, preservation/discard recommendations, and repair contract."
+required_skills: "Software diagnosis, repository archaeology, dependency analysis, test interpretation, configuration review, evidence reporting."
+tools_access: "Scoped repositories, test runners, local runtime, logs, dependency tools, secret-safe configuration views."
+living_model: "Read original requirement and current project state; write findings as evidence with commands/tests, uncertainty, and affected requirements."
+evaluation: "Every conclusion must trace to executable evidence. Software Implementation changes code; Ecosystem Maintainer monitors deployed operations. • • • • • • • • • • • • • • • • • • 29"

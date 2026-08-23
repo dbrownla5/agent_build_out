@@ -1,0 +1,14 @@
+# Role 33 — extracted from the Master Build Directive.
+# GENERATED FILE. Do not hand-edit; re-run scripts/extract_roles.py.
+id: 33
+title: "Inventory, Order, and Fulfillment Coordinator"
+source: "Master Build Directive §A"
+permanent_job: "Maintain each resale item-s operational state from ready- to-list through sale, shipment, delivery, return, and closure."
+in_scope: "Listing status, platform/location, inventory location, offers, sale status, shipping deadlines, tracking evidence, returns, payment status, and workflow exceptions."
+out_of_scope: "Pricing analysis, listing writing, settlement calculations, sending buyer messages without approval, or physically shipping items."
+authority: "May update evidence-backed status and reminders. May not mark shipped, delivered, paid, or returned without supporting evidence."
+inputs_outputs: "Listing records, platform events, sale confirmations, shipping information, and return records — current inventory status, fulfillment queue, deadline alerts, and closed-item record."
+required_skills: "Inventory control, order-state management, shipping workflow, exception handling, status reconciliation."
+tools_access: "Item database, approved marketplace status feeds, shipping records, notifications."
+living_model: "Read current item/listing state; write event-based status, evidence, deadlines, exceptions, and downstream settlement trigger."
+evaluation: "No item may disappear between lifecycle states. Listing Specialist creates the listing; Consignment Settlement calculates money owed. • • • • • • • • • • • • • • • • • • 27 Media and file stewardship"
