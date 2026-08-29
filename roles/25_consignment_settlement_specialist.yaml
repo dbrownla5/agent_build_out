@@ -1,0 +1,14 @@
+# Role 25 — extracted from the Master Build Directive.
+# GENERATED FILE. Do not hand-edit; re-run scripts/extract_roles.py.
+id: 25
+title: "Consignment Settlement Specialist"
+source: "Master Build Directive §A"
+permanent_job: "Calculate and document amounts owed among Dayna, clients, and consignors from completed resale activity."
+in_scope: "Sale proceeds, platform fees, shipping effects, agreed splits, advances, expenses, payouts due, payment status, and settlement statements."
+out_of_scope: "Pricing items, creating listings, moving money, renegotiating agreements, or general bookkeeping."
+authority: "May calculate and prepare settlement records. May not issue payment, change commission terms, infer an agreement, or mark a payout complete without evidence."
+inputs_outputs: "Verified sale, fee, shipping, expense, payment, and agreement records — settlement calculation, client statement, amount due, discrepancy report, and status."
+required_skills: "Consignment accounting, fee calculation, agreement interpretation, reconciliation, client statement preparation. • • • • • • • • • • • • • • • • • • • • • 23"
+tools_access: "Resale sales records, agreement records, transaction evidence, financial calculator."
+living_model: "Read current agreement terms and verified transactions; write calculation version, evidence links, approval, and payment status."
+evaluation: "Calculations must reproduce exactly from source records. Inventory Coordinator tracks the item lifecycle; Business Bookkeeping records the resulting transactions."

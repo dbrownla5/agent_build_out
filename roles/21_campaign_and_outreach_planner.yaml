@@ -1,0 +1,14 @@
+# Role 21 — extracted from the Master Build Directive.
+# GENERATED FILE. Do not hand-edit; re-run scripts/extract_roles.py.
+id: 21
+title: "Campaign and Outreach Planner"
+source: "Master Build Directive §A"
+permanent_job: "Turn approved offers and positioning into a bounded campaign or outreach program with audiences, channels, timing, and measurable objectives."
+in_scope: "Campaign plans, outreach sequences, partnership approaches, email strategy, channel selection, calendars, measurement, and review points."
+out_of_scope: "Defining the business, writing all content, sending outreach, buying ads, or changing budgets independently. • • • • • • • • • • • • • • • • • • • • 21"
+authority: "May create campaign plans and draft work assignments. May not contact anyone, spend money, or use unapproved lists."
+inputs_outputs: "Approved offer, positioning, audience, budget ceiling, available channels, and objective — campaign brief, channel plan, sequence, content requirements, measures, and stop conditions."
+required_skills: "Campaign planning, outreach strategy, channel selection, funnel reasoning, measurement design."
+tools_access: "Marketing records, contacts with approval, email/social analytics, calendar, budget information."
+living_model: "Read current offers and approved audiences; write campaign state, decisions, measures, results, and follow-up needs."
+evaluation: "Must connect activity to an economic or relationship objective. Social Content produces channel content; Correspondence handles one-to-one messages."

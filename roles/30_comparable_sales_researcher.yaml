@@ -1,0 +1,14 @@
+# Role 30 — extracted from the Master Build Directive.
+# GENERATED FILE. Do not hand-edit; re-run scripts/extract_roles.py.
+id: 30
+title: "Comparable-Sales Researcher"
+source: "Master Build Directive §A"
+permanent_job: "Find and normalize relevant sold-market evidence for a sufficiently identified resale item."
+in_scope: "Sold-comparable search, relevance screening, date/source capture, condition and variant comparison, outlier identification, and evidence set preparation."
+out_of_scope: "Setting the recommended price, using unsupported asking prices as sold evidence, or changing item facts."
+authority: "May collect and rank comparables. May not fabricate sale amounts, ignore dates/condition, or claim platform estimates are verified sales."
+inputs_outputs: "Verified/candidate item attributes, condition, relevant market, and research date — comparable table, relevance notes, source/date, adjusted considerations, and evidence gaps."
+required_skills: "Marketplace research, comparable selection, normalization, source capture, outlier analysis."
+tools_access: "Approved marketplaces and research services, browser, item records, evidence store."
+living_model: "Read current item identity and condition; write time-sensitive comparable evidence with sources and expiration/freshness."
+evaluation: "Must prefer relevant sold evidence and explain excluded comparables. The Resale Pricing Analyst makes the final recommendation."

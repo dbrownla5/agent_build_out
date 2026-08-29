@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex, nofollow">
+<title>Agent System — Dashboard Shell</title>
+<style>
+  /* Zero external requests: no CDN, no webfonts, no remote images.
+     Everything below is inline and renders with no network. */
+  :root {
+    --bg: #f6f7f9;
+    --panel: #ffffff;
+    --panel-2: #f0f2f5;
+    --ink: #14181f;
+    --ink-soft: #566076;
+    --ink-faint: #7b8598;
+    --line: #dfe3ea;
+    --accent: #2f5bd0;
+    --ok-bg: #e2f4e8;      --ok-ink: #14653c;   --ok-line: #a9dcc0;
+    --bad-bg: #fdeaea;     --bad-ink: #93231f;  --bad-line: #f3bfbd;
+    --warn-bg: #fdf3df;    --warn-ink: #7a5406; --warn-line: #ecd39a;
+    --notbuilt-bg: #eceef3; --notbuilt-ink: #5b6478; --notbuilt-line: #cdd3de;
+    --radius: 12px;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1216;
+      --panel: #171b21;
+      --panel-2: #1e232b;
+      --ink: #e8ecf2;
+      --ink-soft: #a6b0c0;
+      --ink-faint: #7c8798;
+      --line: #2a313b;
+      --accent: #8ab0ff;
+      --ok-bg: #12301f;    --ok-ink: #7fd8a5;   --ok-line: #245c3c;
+      --bad-bg: #351a19;   --bad-ink: #ffa8a3;  --bad-line: #6b2f2c;
+      --warn-bg: #33280f;  --warn-ink: #f0cd82; --warn-line: #63501f;
+      --notbuilt-bg: #22272f; --notbuilt-ink: #97a1b3; --notbuilt-line: #363e4a;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 20px 16px 64px; }
+
+  header.top {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    align-items: baseline; justify-content: space-between;
+    padding-bottom: 16px; border-bottom: 1px solid var(--line); margin-bottom: 22px;
+  }
+  h1 { font-size: 1.35rem; margin: 0; letter-spacing: -0.01em; }
+  .sub { color: var(--ink-soft); font-size: 0.86rem; margin: 4px 0 0; }
+
+  h2 {
+    font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.09em;
+    color: var(--ink-faint); margin: 34px 0 12px; font-weight: 700;
+  }
+  h2:first-of-type { margin-top: 22px; }
+
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.74rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line);
+    background: var(--panel-2); color: var(--ink-soft); white-space: nowrap;
+  }
+  .pill.ok   { background: var(--ok-bg);  color: var(--ok-ink);  border-color: var(--ok-line); }
+  .pill.bad  { background: var(--bad-bg); color: var(--bad-ink); border-color: var(--bad-line); }
+  .pill.warn { background: var(--warn-bg);color: var(--warn-ink);border-color: var(--warn-line); }
+  .pill.notbuilt {
+    background: var(--notbuilt-bg); color: var(--notbuilt-ink);
+    border-color: var(--notbuilt-line); border-style: dashed;
+  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+  .stat {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 12px 14px;
+  }
+  .stat .k {
+    font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.07em;
+    color: var(--ink-faint); font-weight: 700;
+  }
+  .stat .v {
+    font-family: var(--mono); font-size: 0.95rem; margin-top: 5px;
+    overflow-wrap: anywhere;
+  }
+
+  .banner {
+    border: 1px solid var(--bad-line); background: var(--bad-bg); color: var(--bad-ink);
+    border-radius: var(--radius); padding: 12px 14px; margin-bottom: 16px; font-size: 0.9rem;
+  }
+  .banner strong { display: block; margin-bottom: 3px; }
+  .banner code { font-family: var(--mono); font-size: 0.82rem; overflow-wrap: anywhere; }
+
+  .band { margin-bottom: 14px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); overflow: hidden; }
+  .band > summary {
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between;
+    padding: 12px 14px; cursor: pointer; list-style: none; font-weight: 650;
+  }
+  .band > summary::-webkit-details-marker { display: none; }
+  .band > summary:hover { background: var(--panel-2); }
+  .band .bandmeta { font-family: var(--mono); font-size: 0.76rem; color: var(--ink-faint); font-weight: 400; }
+  .band .roles { border-top: 1px solid var(--line); }
+
+  .role {
+    display: block; width: 100%; text-align: left; background: none; border: 0;
+    border-bottom: 1px solid var(--line); padding: 10px 14px; cursor: pointer;
+    color: var(--ink); font: inherit; font-size: 0.92rem;
+  }
+  .role:last-child { border-bottom: 0; }
+  .role:hover, .role:focus-visible { background: var(--panel-2); outline: none; }
+  .role .num { font-family: var(--mono); color: var(--ink-faint); margin-right: 10px; font-size: 0.84rem; }
+  .role[aria-expanded="true"] { background: var(--panel-2); }
+  .contract {
+    padding: 4px 14px 14px; border-bottom: 1px solid var(--line);
+    background: var(--panel-2); font-size: 0.87rem;
+  }
+  .contract dl { margin: 0; display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .contract dt {
+    font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.07em;
+    color: var(--ink-faint); font-weight: 700;
+  }
+  .contract dd { margin: 2px 0 0; color: var(--ink-soft); overflow-wrap: anywhere; }
+  @media (min-width: 720px) { .contract dl { grid-template-columns: 1fr 1fr; } }
+
+  .empty { padding: 14px; color: var(--ink-faint); font-size: 0.88rem; }
+
+  .notbuilt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+  .nb {
+    border: 1px dashed var(--notbuilt-line); background: var(--panel);
+    border-radius: var(--radius); padding: 13px 14px;
+  }
+  .nb .nbhead { display: flex; gap: 8px; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+  .nb .nbname { font-weight: 650; font-size: 0.95rem; }
+  .nb p { margin: 0; color: var(--ink-faint); font-size: 0.84rem; }
+
+  footer {
+    margin-top: 38px; padding-top: 16px; border-top: 1px solid var(--line);
+    color: var(--ink-faint); font-size: 0.79rem;
+  }
+  footer p { margin: 0 0 6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <h1>Agent System</h1>
+      <p class="sub">Dashboard shell — Phase 1. Only the sections marked <em>live</em> are real.</p>
+    </div>
+    <span class="pill" id="status-pill"><span class="dot"></span><span id="status-text">checking…</span></span>
+  </header>
+
+  <div id="banner-slot"></div>
+
+  <h2>Server — live</h2>
+  <div class="stats">
+    <div class="stat"><div class="k">Status</div><div class="v" id="s-status">…</div></div>
+    <div class="stat"><div class="k">Node</div><div class="v" id="s-node">…</div></div>
+    <div class="stat"><div class="k">Commit</div><div class="v" id="s-commit">…</div></div>
+    <div class="stat"><div class="k">Version</div><div class="v" id="s-version">…</div></div>
+    <div class="stat"><div class="k">Uptime</div><div class="v" id="s-uptime">…</div></div>
+    <div class="stat"><div class="k">Roles loaded</div><div class="v" id="s-roles">…</div></div>
+    <div class="stat"><div class="k">Registry valid</div><div class="v" id="s-valid">…</div></div>
+  </div>
+
+  <h2>Role registry — live</h2>
+  <div id="bands"><p class="empty">Loading role registry…</p></div>
+
+  <h2>Not built yet</h2>
+  <div class="notbuilt-grid">
+    <div class="nb">
+      <div class="nbhead"><span class="nbname">Intake</span><span class="pill notbuilt">Not built</span></div>
+      <p>No request capture, no routing, no intake records. Nothing is being read or queued.</p>
+    </div>
+    <div class="nb">
+      <div class="nbhead"><span class="nbname">Uploads</span><span class="pill notbuilt">Not built</span></div>
+      <p>No file or photo upload path, no storage. Nothing can be sent to this system yet.</p>
+    </div>
+    <div class="nb">
+      <div class="nbhead"><span class="nbname">Workflows</span><span class="pill notbuilt">Not built</span></div>
+      <p>No workflow engine and no handoffs between roles. No work is running anywhere.</p>
+    </div>
+    <div class="nb">
+      <div class="nbhead"><span class="nbname">Approvals</span><span class="pill notbuilt">Not built</span></div>
+      <p>No approval gates and no permission checks. Nothing is waiting on a decision.</p>
+    </div>
+    <div class="nb">
+      <div class="nbhead"><span class="nbname">Review queue</span><span class="pill notbuilt">Not built</span></div>
+      <p>No queue exists. There are no items pending review, because nothing produces items.</p>
+    </div>
+    <div class="nb">
+      <div class="nbhead"><span class="nbname">Living context</span><span class="pill notbuilt">Not built</span></div>
+      <p>No durable memory, no corrections, no continuity. Nothing said here is retained.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>This page shows only what the server actually reports. It does not simulate activity,
+       progress, or pending work. Anything labelled <strong>Not built</strong> does not exist yet.</p>
+    <p id="fetched-at"></p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // Band definitions come from the build brief's functional grouping of the 40
+  // permanent roles. Ranges only — no role titles are hard-coded here, so this
+  // page cannot display a role the server did not actually return.
+  var BANDS = [
+    { name: 'Navigation and coordination', from: 1,  to: 6  },
+    { name: 'Career',                      from: 7,  to: 12 },
+    { name: 'Communications',              from: 13, to: 16 },
+    { name: 'Business',                    from: 17, to: 22 },
+    { name: 'Financial',                   from: 23, to: 26 },
+    { name: 'Resale',                      from: 27, to: 33 },
+    { name: 'Media and files',             from: 34, to: 36 },
+    { name: 'Technical and forensic',      from: 37, to: 40 }
+  ];
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  function text(el, value) { el.textContent = value; }
+
+  function setPill(el, cls, label) {
+    el.className = 'pill' + (cls ? ' ' + cls : '');
+    el.innerHTML = '';
+    var dot = document.createElement('span');
+    dot.className = 'dot';
+    el.appendChild(dot);
+    var span = document.createElement('span');
+    span.textContent = label;
+    el.appendChild(span);
+  }
+
+  function banner(title, detail) {
+    var slot = $('banner-slot');
+    var div = document.createElement('div');
+    div.className = 'banner';
+    var strong = document.createElement('strong');
+    strong.textContent = title;
+    div.appendChild(strong);
+    var code = document.createElement('code');
+    code.textContent = detail;
+    div.appendChild(code);
+    slot.appendChild(div);
+  }
+
+  function humanUptime(seconds) {
+    if (typeof seconds !== 'number' || !isFinite(seconds) || seconds < 0) return 'unknown';
+    var s = Math.floor(seconds);
+    var d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600);
+    var m = Math.floor((s % 3600) / 60), sec = s % 60;
+    if (d) return d + 'd ' + h + 'h';
+    if (h) return h + 'h ' + m + 'm';
+    if (m) return m + 'm ' + sec + 's';
+    return sec + 's';
+  }
+
+  function getJson(url) {
+    return fetch(url, { headers: { accept: 'application/json' }, cache: 'no-store' })
+      .then(function (res) {
+        return res.text().then(function (body) {
+          var data = null;
+          try { data = JSON.parse(body); } catch (e) { /* not JSON */ }
+          return { ok: res.ok, status: res.status, data: data, raw: body };
+        });
+      });
+  }
+
+  // ---- /health -------------------------------------------------------------
+
+  function renderHealth(result) {
+    var d = result.data || {};
+    var unknown = 'unknown';
+
+    text($('s-node'), d.node || unknown);
+    text($('s-commit'), d.commit || unknown);
+    text($('s-version'), d.version || unknown);
+    text($('s-uptime'), humanUptime(d.uptime_s));
+    text($('s-roles'), typeof d.roles_loaded === 'number' ? String(d.roles_loaded) : unknown);
+    text($('s-valid'), typeof d.roles_valid === 'boolean' ? String(d.roles_valid) : unknown);
+
+    if (result.ok && d.status === 'ok') {
+      text($('s-status'), 'ok');
+      setPill($('status-pill'), 'ok', 'Server healthy');
+      return;
+    }
+
+    text($('s-status'), 'HTTP ' + result.status + (d.status ? ' / ' + d.status : ''));
+    setPill($('status-pill'), 'bad', 'Server unhealthy');
+    banner(
+      'Health check failed (HTTP ' + result.status + ')',
+      d.error ? String(d.error) : (result.raw || '').slice(0, 400) || 'no detail returned'
+    );
+  }
+
+  function healthFailed(err) {
+    setPill($('status-pill'), 'bad', 'Unreachable');
+    ['s-status','s-node','s-commit','s-version','s-uptime','s-roles','s-valid'].forEach(function (id) {
+      text($(id), 'unknown');
+    });
+    banner('Could not reach /health', String(err && err.message ? err.message : err));
+  }
+
+  // ---- /api/roles ----------------------------------------------------------
+
+  function renderContract(container, role) {
+    var wrap = document.createElement('div');
+    wrap.className = 'contract';
+    var dl = document.createElement('dl');
+    // Render every field the server returned, in the order it returned them.
+    // Nothing is invented client-side.
+    Object.keys(role).forEach(function (key) {
+      if (key === 'id' || key === 'title') return;
+      var value = role[key];
+      if (value === null || value === undefined || value === '') return;
+      var dt = document.createElement('dt');
+      dt.textContent = key.replace(/_/g, ' ');
+      var dd = document.createElement('dd');
+      dd.textContent = typeof value === 'string' ? value : JSON.stringify(value);
+      dl.appendChild(dt);
+      dl.appendChild(dd);
+    });
+    if (!dl.children.length) {
+      var p = document.createElement('p');
+      p.className = 'empty';
+      p.textContent = 'The server returned no contract fields for this role.';
+      wrap.appendChild(p);
+    } else {
+      wrap.appendChild(dl);
+    }
+    container.appendChild(wrap);
+  }
+
+  function toggleRole(btn, role) {
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    var next = btn.nextSibling;
+    if (open) {
+      if (next && next.className === 'contract') next.parentNode.removeChild(next);
+      btn.setAttribute('aria-expanded', 'false');
+      return;
+    }
+    btn.setAttribute('aria-expanded', 'true');
+    var holder = document.createElement('div');
+    var loading = document.createElement('div');
+    loading.className = 'contract';
+    loading.textContent = 'Loading contract…';
+    btn.parentNode.insertBefore(loading, btn.nextSibling);
+
+    getJson('/api/roles/' + encodeURIComponent(role.id))
+      .then(function (res) {
+        loading.parentNode.removeChild(loading);
+        if (!res.ok || !res.data) {
+          var errBox = document.createElement('div');
+          errBox.className = 'contract';
+          errBox.textContent = 'Could not load this contract (HTTP ' + res.status + ').';
+          btn.parentNode.insertBefore(errBox, btn.nextSibling);
+          return;
+        }
+        var slot = document.createElement('div');
+        renderContract(slot, res.data);
+        var node = slot.firstChild;
+        btn.parentNode.insertBefore(node, btn.nextSibling);
+      })
+      .catch(function (err) {
+        loading.textContent = 'Could not load this contract: ' + err;
+      });
+    return holder;
+  }
+
+  function renderRoles(result) {
+    var host = $('bands');
+    host.innerHTML = '';
+
+    if (!result.ok || !result.data || !Array.isArray(result.data.roles)) {
+      var p = document.createElement('p');
+      p.className = 'empty';
+      p.textContent = 'Role registry unavailable (HTTP ' + result.status + '). No roles are being shown, ' +
+                      'because the server did not return any.';
+      host.appendChild(p);
+      return;
+    }
+
+    var roles = result.data.roles.slice().sort(function (a, b) {
+      return Number(a.id) - Number(b.id);
+    });
+
+    var placed = {};
+    BANDS.forEach(function (band) {
+      var inBand = roles.filter(function (r) {
+        var n = Number(r.id);
+        return n >= band.from && n <= band.to;
+      });
+      inBand.forEach(function (r) { placed[String(r.id)] = true; });
+
+      var expected = band.to - band.from + 1;
+      var details = document.createElement('details');
+      details.className = 'band';
+      if (inBand.length !== expected) details.open = true;
+
+      var summary = document.createElement('summary');
+      var label = document.createElement('span');
+      label.textContent = band.name;
+      summary.appendChild(label);
+
+      var meta = document.createElement('span');
+      meta.className = 'bandmeta';
+      meta.textContent = 'roles ' + band.from + '–' + band.to + ' · ' +
+                         inBand.length + ' of ' + expected + ' loaded';
+      summary.appendChild(meta);
+      details.appendChild(summary);
+
+      var list = document.createElement('div');
+      list.className = 'roles';
+      if (!inBand.length) {
+        var none = document.createElement('p');
+        none.className = 'empty';
+        none.textContent = 'No roles in this band were returned by the server.';
+        list.appendChild(none);
+      } else {
+        inBand.forEach(function (role) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'role';
+          btn.setAttribute('aria-expanded', 'false');
+          var num = document.createElement('span');
+          num.className = 'num';
+          num.textContent = String(role.id).padStart(2, '0');
+          btn.appendChild(num);
+          var t = document.createElement('span');
+          t.textContent = role.title || '(untitled — server returned no title)';
+          btn.appendChild(t);
+          btn.addEventListener('click', function () { toggleRole(btn, role); });
+          list.appendChild(btn);
+        });
+      }
+      details.appendChild(list);
+      host.appendChild(details);
+    });
+
+    var unbanded = roles.filter(function (r) { return !placed[String(r.id)]; });
+    if (unbanded.length) {
+      var extra = document.createElement('details');
+      extra.className = 'band';
+      extra.open = true;
+      var s2 = document.createElement('summary');
+      s2.textContent = 'Outside the documented bands (' + unbanded.length + ')';
+      extra.appendChild(s2);
+      var l2 = document.createElement('div');
+      l2.className = 'roles';
+      unbanded.forEach(function (role) {
+        var row = document.createElement('div');
+        row.className = 'role';
+        row.textContent = String(role.id) + ' — ' + (role.title || '(untitled)');
+        l2.appendChild(row);
+      });
+      extra.appendChild(l2);
+      host.appendChild(extra);
+    }
+  }
+
+  // ---- boot ----------------------------------------------------------------
+
+  getJson('/health').then(renderHealth).catch(healthFailed);
+
+  getJson('/api/roles').then(renderRoles).catch(function (err) {
+    var host = $('bands');
+    host.innerHTML = '';
+    var p = document.createElement('p');
+    p.className = 'empty';
+    p.textContent = 'Could not reach /api/roles: ' + (err && err.message ? err.message : err);
+    host.appendChild(p);
+  });
+
+  $('fetched-at').textContent = 'Page loaded ' + new Date().toLocaleString() +
+    '. Values above are a single snapshot; reload to refresh.';
+})();
+</script>
+</body>
+</html>

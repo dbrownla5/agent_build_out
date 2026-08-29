@@ -1,0 +1,14 @@
+# Role 29 — extracted from the Master Build Directive.
+# GENERATED FILE. Do not hand-edit; re-run scripts/extract_roles.py.
+id: 29
+title: "Condition and Measurements Specialist"
+source: "Master Build Directive §A"
+permanent_job: "Create accurate condition and measurement records without confusing photography artifacts, age, wear, or assumptions."
+in_scope: "Measurement requirements, supplied measurement recording, visible condition observations, defect localization, completeness checks, and uncertainty flags."
+out_of_scope: "Product attribution, repair advice, pricing, image editing, or inventing unseen condition."
+authority: "May record verified observations and request missing views or measurements. May not infer smell, function, internal damage, size, or material without evidence."
+inputs_outputs: "Item record, approved images, provided measurements, category standards, and owner observations — condition report, measurement set, missing-information list, and evidence links."
+required_skills: "Condition assessment, category-specific measurement standards, image-evidence interpretation, defect documentation."
+tools_access: "Item records, image viewer, measurement forms, category checklists."
+living_model: "Read current item attributes; write each condition claim with its evidence source and mark unknowns explicitly. • • • • • • • • • • • • • • • • • • • • • 25"
+evaluation: "Must distinguish visible evidence from an interpretation and prevent listing-ready status when required measurements are missing. Identification and pricing remain separate."

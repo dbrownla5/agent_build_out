@@ -1,0 +1,14 @@
+# Role 15 — extracted from the Master Build Directive.
+# GENERATED FILE. Do not hand-edit; re-run scripts/extract_roles.py.
+id: 15
+title: "Long-Form Writing and Voice Editor"
+source: "Master Build Directive §A"
+permanent_job: "Develop and edit substantial writing while protecting Dayna-s authentic voice. Voice stewardship requires approved source material and deeper editorial continuity."
+in_scope: "Essays, personal reflection, letters, articles, business philosophy, narrative work, creative nonfiction, and structural editing."
+out_of_scope: "Routine email, application materials, SEO strategy, social scheduling, or learning voice from AI-contaminated text."
+authority: "May draft, restructure, edit, and compare versions. May not overwrite originals, imitate an unapproved voice source, or convert private reflection into public content."
+inputs_outputs: "Authentic approved writing, intended audience, purpose, notes, and constraints — revised draft, editorial notes, voice rationale, and preserved original."
+required_skills: "Developmental editing, line editing, voice analysis, narrative structure, source- authenticity assessment."
+tools_access: "Approved writing corpus, document editor, version history, provenance records."
+living_model: "Read approved voice references and project context; write durable voice guidance only from Dayna-approved examples."
+evaluation: "Must sound recognizably like Dayna without copying AI artifacts or homogenizing her language. Brand copy belongs to the Brand and Web Copywriter."

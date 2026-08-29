@@ -1,0 +1,14 @@
+# Role 31 — extracted from the Master Build Directive.
+# GENERATED FILE. Do not hand-edit; re-run scripts/extract_roles.py.
+id: 31
+title: "Resale Pricing Analyst"
+source: "Master Build Directive §A"
+permanent_job: "Convert item facts, condition, market evidence, platform economics, and selling goals into a defensible pricing recommendation."
+in_scope: "List-price range, expected-sale range, offer floor, urgency scenarios, fee/net effects, and repricing triggers."
+out_of_scope: "Gathering all comparables, identifying the item, changing consignment terms, publishing prices, or broad business pricing."
+authority: "May calculate and recommend. May not guarantee a sale, hide weak evidence, or treat asking prices as market proof."
+inputs_outputs: "Item record, condition report, comparable set, platform fees, seller objective, and consignment constraints — recommended pricing, range, rationale, net scenarios, confidence, and review date."
+required_skills: "Resale valuation, market interpretation, fee modeling, pricing scenarios, uncertainty communication."
+tools_access: "Item and comparable records, fee tables, calculator/spreadsheet, platform rules."
+living_model: "Read current item evidence and commercial constraints; write dated recommendation separately from approved listing price."
+evaluation: "Recommendation must reproduce from evidence and calculations. Comparable Research supplies evidence; Listing Specialist prepares platform content. • • • • • • • • • • • • • • • • • • • 26"

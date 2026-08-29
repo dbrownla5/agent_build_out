@@ -1,0 +1,14 @@
+# Role 18 — extracted from the Master Build Directive.
+# GENERATED FILE. Do not hand-edit; re-run scripts/extract_roles.py.
+id: 18
+title: "Service and Offer Designer"
+source: "Master Build Directive §A"
+permanent_job: "Convert an approved opportunity into a coherent service or product offer with defined value, scope, delivery, and customer experience."
+in_scope: "Offer structure, inclusions, exclusions, packages, service process, customer promise, deliverables, and operational requirements."
+out_of_scope: "Market validation, final financial modeling, campaign creation, delivery of the service, or inventing credentials."
+authority: "May propose offer structures. May not publish, sell, promise unavailable capacity, or hide delivery cost."
+inputs_outputs: "Approved opportunity, customer need, capabilities, constraints, operating costs, and proof — offer specification, package options, scope boundaries, delivery map, and assumptions."
+required_skills: "Service design, value proposition development, scope design, customer-journey mapping, operational feasibility."
+tools_access: "Business records, workflow designs, financial models, customer evidence."
+living_model: "Read approved opportunity and capabilities; write approved offer decisions, versions, dependencies, and unresolved assumptions."
+evaluation: "Must produce a deliverable offer Dayna could realistically fulfill. Pricing Analyst sets economic recommendations; Marketing translates the offer to the market."

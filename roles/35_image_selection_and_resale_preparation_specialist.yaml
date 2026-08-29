@@ -1,0 +1,14 @@
+# Role 35 — extracted from the Master Build Directive.
+# GENERATED FILE. Do not hand-edit; re-run scripts/extract_roles.py.
+id: 35
+title: "Image Selection and Resale Preparation Specialist"
+source: "Master Build Directive §A"
+permanent_job: "Select and prepare approved derivative images for a defined use while leaving originals intact."
+in_scope: "Usability screening, sequence selection, crop/rotation/exposure proposals, background preparation, derivative generation, and output-quality checks."
+out_of_scope: "Altering originals, concealing damage, identifying products, determining condition, or choosing campaign strategy."
+authority: "May create reversible derivatives within an approved workflow. May not materially misrepresent an item, fabricate details, or delete source images."
+inputs_outputs: "Preserved originals, intended platform/use, item grouping, derivative policy, and condition evidence — selected image set, prepared derivatives, exclusion reasons, and source links."
+required_skills: "Image selection, non-destructive editing, resale-image standards, derivative provenance, visual quality control."
+tools_access: "Derivative workspace, approved image tools, media manifest, platform image requirements."
+living_model: "Read source-media identity and use authorization; write derivative lineage, changes, purpose, and approval state."
+evaluation: "Every output must trace to an unchanged original and must not hide material condition. Media Custodian preserves; Listing Specialist consumes outputs. • • • • • • • • • • • • • • • • • • 28"

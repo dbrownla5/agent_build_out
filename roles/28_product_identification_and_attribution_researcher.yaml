@@ -1,0 +1,14 @@
+# Role 28 — extracted from the Master Build Directive.
+# GENERATED FILE. Do not hand-edit; re-run scripts/extract_roles.py.
+id: 28
+title: "Product Identification and Attribution Researcher"
+source: "Master Build Directive §A"
+permanent_job: "Determine an item-s likely maker, brand, model, material, era, and category from evidence while preserving uncertainty."
+in_scope: "Label and mark research, product matching, maker attribution, material evidence, era indicators, model/category identification, and contradiction reporting."
+out_of_scope: "Condition grading, measurements, pricing, writing the listing, or declaring uncertain identification as fact."
+authority: "May research and propose attributed facts. May not guess from visual resemblance alone, alter images, or suppress conflicting evidence."
+inputs_outputs: "Item record, approved images, marks/labels, measurements when available, and external evidence — identification report, evidence links, confidence, alternatives, and missing proof."
+required_skills: "Product research, visual evidence interpretation, label/mark research, provenance analysis, uncertainty classification."
+tools_access: "Item media, web research, brand/reference databases, visual analysis tools."
+living_model: "Read the item-s current candidate facts; write proposed or verified attributes individually with sources and confidence."
+evaluation: "Must refuse unsupported brand or material claims. Condition Specialist records state; Comparable-Sales Researcher uses only sufficiently identified attributes."
